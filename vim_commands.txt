@@ -1,0 +1,47 @@
+``  position before jump       '' same BOL
+`.  go to last edit            '. same BOL
+g;  go edits backwards         g, same forwards
+`^  go where INSERT was left   gi same and start INSERT
+mx  set mark x                 `x  go to mark x
+
+^  BOL non-blank
+0  BOL blank
+g_ EOL non-blank
+$  EOL blank
+fx go to x in line
+tx go before x in line
+%  jump between brackets in line
+{  jump block up              
+}  jump block down
+
+diw  delete inner word (current word, leave spaces)
+daw  delete a word (current word + spaces)
+di(  delete (whatever is inside) leave ()
+da(  delete (whatever is inside) + () too
+ca(  same and start INSERT mode
+ci(  same and start INSERT mode
+[]   {}   ''   ""   same concept
+
+TODO
+
+c-o / c-i switch between last jumps
+*  do a / search for the exact word under cursor, other direction use #
+
+d/xyz delete until xyz
+
+dd   delete line
+S-D  delete until EOL
+S-C  deleteuntil EOL and start INSERT MODE
+cc DEL line and start INSERT MODE
+
+S-R to replace text -> use backspace to revert
+
+===== show whitespace, tabs etc. as symbols =====
+
+set list
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,space:·
+
+TURN OFF AGAIN:
+set nolist
+OR
+set list!
