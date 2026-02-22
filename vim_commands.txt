@@ -4,23 +4,26 @@ g;  go edits backwards         g, same forwards
 `^  go where INSERT was left   gi same and start INSERT
 mx  set mark x                 `x  go to mark x
 
-^  BOL non-blank
-0  BOL blank
-g_ EOL non-blank
-$  EOL blank
-fx go to x in line
-tx go before x in line
+0  BOL blank        $  EOL blank
+^  BOL non-blank    g_ EOL non-blank
+fx go to x in line  tx go before x in line
+
 %  jump between brackets in line
 {  jump block up              
 }  jump block down
 
-diw  delete inner word (current word, leave spaces)
-daw  delete a word (current word + spaces)
-di(  delete (whatever is inside) leave ()
-da(  delete (whatever is inside) + () too
+map [[ ?{<CR>w99[{
+map ][ /}<CR>b99]}
+map ]] j0[[%/{<CR>
+map [] k$][%?}<CR>
+
+diw  delete inner word        daw  delete a    word 
+di(  delete inner (content)   da(  delete all  (content)
+
+same concept for these:  []  {}  ''  ""
+
 ca(  same and start INSERT mode
 ci(  same and start INSERT mode
-[]   {}   ''   ""   same concept
 
 TODO
 
