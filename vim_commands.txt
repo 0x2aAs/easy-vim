@@ -1,50 +1,51 @@
-``  position before jump       '' same BOL
-`.  go to last edit            '. same BOL
-g;  go edits backwards         g, same forwards
-`^  go where INSERT was left   gi same and start INSERT
-mx  set mark x                 `x  go to mark x
+within a document:
 
-0  BOL blank        $  EOL blank
-^  BOL non-blank    g_ EOL non-blank
-fx go to x in line  tx go before x in line
+``  go to pos before jump   ''  go BOL
+`.  go to last edit         '.  go BOL
+`^  go to last INSERT       gi  go and start INSERT
+g;  go edits backwards      g,  go forwards
+mx  set mark x              `x  go to mark x
+{  jump block up            }  jump block down
 
-%  jump between brackets in line
-{  jump block up              
-}  jump block down
 
+within a line:
+
+%   jump between equal brackets  <- you have to be in the same line like one of the brackets, but the other one can be somewhere up or down in the code   
+0   BOL blank                 $   EOL blank
+^   BOL non-blank             g_  EOL non-blank
+fx  go to next x              tx  put cursor before next x       use , and ; to move to next/previous occurence of x
+Fx  same other direction      Tx  same other direction           use , and ; to move to next/previous occurence of x
+
+The following is so powerful and saves you time: 
+To delete what is inside parentheses, brackets, a code block or paragraph etc. move the cursor inside 
+or even ONLY BEFORE it and press di plus the appropriate symbol. To delete also the brackets etc. press da plus the symbol.
+For a paragraph press dip or dap. The commands with an 'a' in it always delete more than these with an 'i'.  
+
+di(    (delete this)             this {                  <- press vi{ to highlight the three lines inside, press vip to highlight the full block/paragraph
+di[    [delete this]                also works           <- press di{ to delete the lines inside, da{ for the brackets, too, and dap for the full paragraph/block
+di{    {delete this}                across multiple      <- accordingly ci{ will delete the lines and start INSERT mode
+di'    'delete this'                lines                <- press { and } to jump up and down between these blocks of code
+di"    "delete this"             }                       <- you can press [[ and ]] to get up/down to each opening { bracket and [] and ][ for each closing bracket,
+                                                            but to make this work more effectively use the mapping below, it's from the Vim help
+To jump between opening { and closing } 
 map [[ ?{<CR>w99[{
 map ][ /}<CR>b99]}
 map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>
 
-diw  delete inner word        daw  delete a    word 
-di(  delete inner (content)   da(  delete all  (content)
 
-same concept for these:  []  {}  ''  ""
-
-ca(  same and start INSERT mode
-ci(  same and start INSERT mode
-
-TODO
-
-c-o / c-i switch between last jumps
-*  do a / search for the exact word under cursor, other direction use #
-
-d/xyz delete until xyz
-
-dd   delete line
-S-D  delete until EOL
-S-C  deleteuntil EOL and start INSERT MODE
-cc DEL line and start INSERT MODE
+TODO / don't forget
 
 S-R to replace text -> use backspace to revert
+c-o / c-i jump between last jumps
+*  do a / search for the exact word under cursor, other direction use #
+d/xyz delete until xyz
+dd   delete line          cc delete line and start INSERT mode
+S-D  delete until EOL     S-C  delete until EOL and start INSERT MODE
 
-===== show whitespace, tabs etc. as symbols =====
-
+===== show whitespaces, tabs etc. as symbols =====
 set list
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,space:·
+set listchars=tab:▸\ ,trail:·,space:·
 
-TURN OFF AGAIN:
+=== TURN OFF AGAIN:
 set nolist
-OR
-set list!
