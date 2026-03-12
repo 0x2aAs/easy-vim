@@ -1,6 +1,6 @@
 # Vim navigation
 ## within a document
-You edit a document and press ``gg`` to get to the top and then you want to go back where you were editing. I used undo/redo quite a while I think, until I got annoyed from it so much. Fortunately there are much better ways to deal with this.<br />
+You edit a document and press ``gg`` to get to the top and then you want to go back where you were editing. I used undo/redo quite a while I think, until I got annoyed so much. Fortunately there are much better ways to deal with this.<br />
 
 Go back to...
 ```
