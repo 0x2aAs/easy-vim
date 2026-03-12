@@ -9,7 +9,7 @@ Go back to...
 ```
 <br />
 
-In another situation you were editing line xx, then you did some changes in line yy and finally something in zz. To go back and forth in the history of your edits (no matter if you were in normal or insert mode):
+In another situation you were editing line xx, then you did some changes in line yy and finally something in zz. To go back and forth in the history of your edits (no matter if you were editing in normal or insert mode):
 ```
 g;  go edits backwards
 g,  go edits forwards
