@@ -22,6 +22,7 @@ If you were explicitly editing in insert mode and want to continue there, use:
 gi  same, but also start insert mode
 ```
 <br />
+
 When you jumped/moved across a document, no matter if you were editing anything, Vim also has a history for this:
 ```
 <C-o> go to previous cursor positions (means press 'Ctrl' and 'o' together)
